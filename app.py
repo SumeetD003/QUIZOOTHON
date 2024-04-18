@@ -32,3 +32,17 @@ with st.sidebar:
             - [👔 LinkedIn](https://www.linkedin.com/in/sumeet-deshpande-b33840227/)
             """
         )
+
+st.title(":blue[Quizoothon] — Watch. Learn. Quiz. 🧠", anchor=False)
+st.write("""
+        Have you ever found yourself watching a YouTube video and pondered how effectively you grasped its content? 
+        Take a delightful turn: rather than solely viewing on YouTube, engage in Quizoothon to gauge your comprehension!
+
+**How does it work?** 🤔
+1. Paste the YouTube video URL of your recently watched video.
+2. Enter your [Gemini/Vertex API Key](https://aistudio.google.com/app/apikey).
+
+⚠️ Important: The video **must** have English captions for the tool to work.
+
+After inputting the details, GGWP! Delve into tailored questions designed specifically for you, confirming your thorough understanding of the video's content. Let's challenge your knowledge!
+""")
