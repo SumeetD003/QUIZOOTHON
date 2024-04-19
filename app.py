@@ -10,7 +10,7 @@ st. set_page_config(
     initial_sidebar_state='collapsed'
 )
 
-st.title('Welcome to QUIZOOTHON 🧠!')
+st.title('Welcome to QUIZOOTHON 🤔📖!')
 st.write('This is a fantastic quiz competition!')
 
 
@@ -40,9 +40,24 @@ st.write("""
 
 **How does it work?** 🤔
 1. Paste the YouTube video URL of your recently watched video.
-2. Enter your [Gemini/Vertex API Key](https://aistudio.google.com/app/apikey).
+2. Enter your [Gemini API Key](https://aistudio.google.com/app/apikey).
 
 ⚠️ Important: The video **must** have English captions for the tool to work.
 
 After inputting the details, GGWP! Delve into tailored questions designed specifically for you, confirming your thorough understanding of the video's content. Let's challenge your knowledge!
 """)
+
+with st.form("user_input"):
+    YOUTUBE_URL = st.text_input("Enter the YouTube video link:", value="https://youtu.be/bcYwiwsDfGE?si=qQ0nvkmKkzHJom2y")
+    Gemini_API_KEY = st.text_input("Enter your Gemini API Key:", placeholder="sk-XXXX", type='password')
+    submitted = st.form_submit_button("Craft my quiz!")
+    
+
+
+if submitted or ('quiz_data_list' in st.session_state):
+    if not YOUTUBE_URL:
+        st.info("Please provide a valid YouTube video link. Head over to [YouTube](https://www.youtube.com/) to fetch one.")
+        st.stop()
+    elif not Gemini_API_KEY:
+        st.info("Please fill out the Gemini API Key to proceed. If you don't have one, you can obtain it [here](https://aistudio.google.com/app/apikey).")
+        st.stop()
