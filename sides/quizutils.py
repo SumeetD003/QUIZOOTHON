@@ -7,7 +7,7 @@ def string_to_list(s):
     try:
         return ast.literal_eval(s)
     except (SyntaxError, ValueError) as e:
-        st.error(f"Error: The provided input is not correctly formatted. {e}")
+        st.error(f"Error: The provided input is invalid. {e}")
         st.stop()
         
 
