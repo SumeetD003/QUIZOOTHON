@@ -49,7 +49,7 @@ After inputting the details, GGWP! Delve into tailored questions designed specif
 
 with st.form("user_input"):
     YOUTUBE_URL = st.text_input("Enter the YouTube video link:", value="https://youtu.be/bcYwiwsDfGE?si=qQ0nvkmKkzHJom2y")
-    Gemini_API_KEY = st.text_input("Enter your Gemini API Key:", placeholder="sk-XXXX", type='password')
+    Gemini_API_KEY = st.text_input("Enter your Gemini API Key:", placeholder="XXXX", type='password')
     submitted = st.form_submit_button("Craft my quiz!")
     
 
