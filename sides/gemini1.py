@@ -1,10 +1,10 @@
 import streamlit as st
-from langchain.chat_models import ChatGeminiAI  # Import ChatGeminiAI instead of ChatOpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain.chains import LLMChain
 
 
-def get_quiz_data(text, gemini_ai_api_key):  # Change the parameter name
+def get_quiz_data(text, openai_api_key):
     template = f"""
     You are a helpful assistant programmed to generate questions based on any text provided. For every chunk of text you receive, you're tasked with designing 5 distinct questions. Each of these questions will be accompanied by 3 possible answers: one correct answer and two incorrect ones. 
 
@@ -36,7 +36,7 @@ def get_quiz_data(text, gemini_ai_api_key):  # Change the parameter name
             [system_message_prompt, human_message_prompt]
         )
         chain = LLMChain(
-            llm=ChatGeminiAI(gemini_ai_api_key=gemini_ai_api_key),  # Change ChatOpenAI to ChatGeminiAI
+            llm=ChatOpenAI(openai_api_key=openai_api_key),
             prompt=chat_prompt,
         )
         return chain.run(text)
